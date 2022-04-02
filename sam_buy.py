@@ -21,7 +21,7 @@ def getCapacityData():
     myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/delivery/portal/getCapacityData'
     data = {
         # 填自己的
-        # "perDateList":["2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05"],"storeDeliveryTemplateId":"1099860739528765462"
+        # "perDateList":["2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05"],"storeDeliveryTemplateId":"1099860739333462"
     }
     headers = {
         'Host': 'api-sams.walmartmobile.cn',
