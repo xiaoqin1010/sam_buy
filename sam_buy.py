@@ -3,6 +3,8 @@ import requests
 from time import sleep
 
 
+# getCapacityData commitPay 接口的request.body都需要修改为自己的！
+
 # 全局变量定义 无需传参 会在getCapacityData中赋值
 startRealTime = ''
 endRealTime = ''
@@ -13,6 +15,7 @@ latitude = ''
 deviceid = ''
 authtoken = ''
 # 修改点2： /commitPay 抓包填写下面值
+# 把getCapacityData接口的response.body里一些关于库存的true或false修改一下就可以进入到commitPay方法获取trackinfo和data
 trackinfo= ''
 
 
