@@ -2,16 +2,19 @@ import json
 import requests
 from time import sleep
 
+
+# 全局变量定义 无需传参 会在getCapacityData中赋值
 startRealTime = ''
 endRealTime = ''
 
-# /getCapacityData抓包 填写下面值
+# 修改点1： /getCapacityData抓包 填写下面值
 longitude = ''
 latitude = ''
-trackinfo= ''
-# /commitPay 抓包填写下面值
 deviceid = ''
 authtoken = ''
+# 修改点2： /commitPay 抓包填写下面值
+trackinfo= ''
+
 
 
 def getCapacityData():
@@ -20,7 +23,7 @@ def getCapacityData():
 
     myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/delivery/portal/getCapacityData'
     data = {
-        # 填自己的
+        # 修改点3：填自己的
         # "perDateList":["2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05"],"storeDeliveryTemplateId":"1099860739333462"
     }
     headers = {
@@ -66,9 +69,8 @@ def order(startRealTime,endRealTime):
 
     myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/trade/settlement/commitPay'
     data = {
-        # startRealTime = ''
-        # endRealTime = ''
-        # 抓包替换为自己的 修改 expectArrivalTime为startRealTime ； expectArrivalEndTime 为endRealTime
+        
+        # 修改点4： 抓包替换为自己的 修改 expectArrivalTime为startRealTime ； expectArrivalEndTime 为endRealTime
 
         # "goodsList":
         #     [{
@@ -86,6 +88,9 @@ def order(startRealTime,endRealTime):
         #         {"isSelected":'true',"quantity":1,"spuId":"11193470","storeId":"5103"}],
         # "invoiceInfo":{},"cartDeliveryType":1,"floorId":1,"amount":"12680","purchaserName":"",
         # "settleDeliveryInfo":
+        
+        # 修改点4中的一项注意修改"expectArrivalTime":startRealTime "expectArrivalEndTime":endRealTime ：
+        
         #     {"expectArrivalTime":startRealTime,
         #      "expectArrivalEndTime":endRealTime,
         #      "deliveryType":0},"tradeType":"APP","purchaserId":"","payType":0,"currency":"CNY","channel":"wechat","shortageId":1,"isSelfPickup":0,"orderType":0,
