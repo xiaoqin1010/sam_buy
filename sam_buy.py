@@ -122,18 +122,26 @@ def order(startRealTime,endRealTime):
         'app-version': '5.0.45.1'
 
     }
-    try:
+   try:
         ret = requests.post(url=myUrl, headers=headers, data=json.dumps(data))
+        # {"code":"LIMITED","msg":"服务器正忙,请稍后再试","traceId":"","requestId":"8f4cf2f1a29d4845949bdd38f3e82c19.1035.16492924173893553","clientIp":"","rt":0,"success":false}
         print(ret.text)
-        print('【成功】哥，咱家有菜了~')
-        import os
-        file = r"nb.mp3"
-        os.system(file)
-
+        myRet = json.loads(ret.text)
+        status = myRet.get('success')
+        if status:
+            print('【成功】哥，咱家有菜了~')
+            import os
+            file = r"nb.mp3"
+            os.system(file)
+            exit()
+        else:
+            order(startRealTime, endRealTime)
 
     except Exception as e:
         print('order [Error]: ' + str(e))
+        getCapacityData()
         return False
+
 
 
 while 1:
