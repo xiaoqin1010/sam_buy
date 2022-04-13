@@ -3,7 +3,7 @@ import requests
 from time import sleep
 
 
-# getCapacityData commitPay 接口的request.body都需要修改为自己的！
+# getCapacityData commitPay 接口的request.body和header 都需要修改为自己的！
 
 # 全局变量定义 无需传参 会在getCapacityData中赋值
 startRealTime = ''
@@ -124,7 +124,6 @@ def order(startRealTime,endRealTime):
     }
    try:
         ret = requests.post(url=myUrl, headers=headers, data=json.dumps(data))
-        # {"code":"LIMITED","msg":"服务器正忙,请稍后再试","traceId":"","requestId":"8f4cf2f1a29d4845949bdd38f3e82c19.1035.16492924173893553","clientIp":"","rt":0,"success":false}
         print(ret.text)
         myRet = json.loads(ret.text)
         status = myRet.get('success')
@@ -135,7 +134,16 @@ def order(startRealTime,endRealTime):
             os.system(file)
             exit()
         else:
-            order(startRealTime, endRealTime)
+            if myRet.get('code') == 'STORE_HAS_CLOSED':
+                sleep(60)
+                getCapacityData()
+            elif myRet.get('code') == 'LIMITED':
+                index += 1
+                if index > 3:
+                    getCapacityData()
+                order(startRealTime, endRealTime)
+            else:
+                getCapacityData()
 
     except Exception as e:
         print('order [Error]: ' + str(e))
@@ -143,7 +151,10 @@ def order(startRealTime,endRealTime):
         return False
 
 
-
+count = 0
+index = 0
 while 1:
+    count = count + 1
+    print(count)
     getCapacityData()
     sleep(6)
