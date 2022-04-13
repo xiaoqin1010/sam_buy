@@ -16,6 +16,7 @@ deviceid = ''
 authtoken = ''
 # 修改点2： /commitPay 抓包填写下面值
 # 把getCapacityData接口的response.body里一些关于库存的true或false修改一下就可以进入到commitPay方法获取trackinfo和data
+# 关于库存修改： timeISFull=false, timeISFull=false,disable=true 即可选择配送时间 进行下单获得commitPay的参数
 trackinfo= ''
 
 
