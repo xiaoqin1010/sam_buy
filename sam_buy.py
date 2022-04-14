@@ -115,35 +115,20 @@ def order(startRealTime,endRealTime):
 
     myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/trade/settlement/commitPay'
     data = {
-        
-        # 修改点4： 抓包替换为自己的 修改 expectArrivalTime为startRealTime ； expectArrivalEndTime 为endRealTime
+          # 替换自己抓到的，注意true 加上''单引号
+#         # 修改点4：修改 expectArrivalTime为startRealTime ； expectArrivalEndTime 为endRealTime
+#         "goodsList":[{"isSelected":'true',"quantity":1,"spuId":"1489392","storeId":"5103"},
+#                          {"isSelected":'true',"quantity":1,"spuId":"12422274","storeId":"5103"},
+#                          {"isSelected":'true',"quantity":1,"spuId":"24383389","storeId":"5103"},
+#                          {"isSelected":'true',"quantity":1,"spuId":"4137707","storeId":"5103"}],
+#             "invoiceInfo":{},"cartDeliveryType":1,"floorId":1,"amount":"23220","purchaserName":"",
+#              # 修改点4中的一项注意修改"expectArrivalTime":startRealTime,"expectArrivalEndTime":endRealTime
+#             "settleDeliveryInfo":{"expectArrivalTime":startRealTime,"expectArrivalEndTime":endRealTime,"deliveryType":0},
+#         "tradeType":"APP","purchaserId":"","payType":0,"currency":"CNY","channel":"wechat","shortageId":1,"isSelfPickup":0,"orderType":0,"uid":"18182131375569","appId":"wx5736432dfba","addressId":"142131238","deliveryInfoVO":{"storeDeliveryTemplateId":"1183433472630","deliveryModeId":"1319","storeType":"4"},"remark":"",
+#             "storeInfo":{"storeId":"5103","storeType":"4","areaBlockId":"1183123123128374"},
+#             "shortageDesc":"其他商品继续配送（缺货商品直接退款）","payMethodId":"1486653332"
+       
 
-        # "goodsList":
-        #     [{
-        #         "isSelected":'true',"quantity":1,"spuId":"1283175","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11198003","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11834649","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11188478","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"18471933","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11193474","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"17432120","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11183508","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"10566138","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"10561730","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11183507","storeId":"5103"},
-        #         {"isSelected":'true',"quantity":1,"spuId":"11193470","storeId":"5103"}],
-        # "invoiceInfo":{},"cartDeliveryType":1,"floorId":1,"amount":"12680","purchaserName":"",
-        # "settleDeliveryInfo":
-        
-        # 修改点4中的一项注意修改"expectArrivalTime":startRealTime "expectArrivalEndTime":endRealTime ：
-        
-        #     {"expectArrivalTime":startRealTime,
-        #      "expectArrivalEndTime":endRealTime,
-        #      "deliveryType":0},"tradeType":"APP","purchaserId":"","payType":0,"currency":"CNY","channel":"wechat","shortageId":1,"isSelfPickup":0,"orderType":0,
-        # "couponList":[{"promotionId":"2133123123","storeId":"5103"}],"uid":"12321","appId":"12312","addressId":"145123532498",
-        # "deliveryInfoVO":{"storeDeliveryTemplateId":"10998630739528765462","deliveryModeId":"1009","storeType":"4"},"remark":"",
-        # "storeInfo":{"storeId":"51033","storeType":"4","areaBlockId":"13333806"},
-        # "shortageDesc":"其他商品继续配送（缺货商品直接退款）","payMethodId":"1486659732"
     }
     headers = {
         'Host': 'api-sams.walmartmobile.cn',
