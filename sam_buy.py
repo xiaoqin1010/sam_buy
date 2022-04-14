@@ -108,9 +108,6 @@ def getCapacityData():
 
 def order(startRealTime,endRealTime):
     global index
-    # 防止重复请求
-    if index > 10:
-        getCapacityData()
     print('下单：'+startRealTime)
 
     myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/trade/settlement/commitPay'
