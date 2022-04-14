@@ -11,7 +11,8 @@ python version: 3.8.6;
 至于https包显示unknown请自行查阅https抓包的问题（多半是证书配置问题）
 
 # 疫情当下上海买菜太难了
-
+互助群
+![Alt text](https://github.com/azhan1998/sam_buy/blob/main/QRcode.jpg)
 
 # 仅供学习交流，不可用于非法牟利。
 # 版权说明
