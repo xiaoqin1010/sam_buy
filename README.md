@@ -1,9 +1,9 @@
 # sam_buy
 山姆买菜
 
-platform: ios15
-app version: v5.0.45.1
-python version: 3.8.6
+platform: ios15;
+app version: v5.0.45.1;
+python version: 3.8.6;
 代码中有注释，遵循注释进行修改 运行即可
 
 # 关于抓包
