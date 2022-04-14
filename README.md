@@ -10,7 +10,7 @@ app version: v5.0.45.1;
 python version: 3.8.6;
 
 
-代码中有注释，遵循注释进行修改 运行即可
+## 代码中有注释，遵循注释进行修改 运行即可
 
 # 关于抓包
 鄙人用的是http catcher(applestore可以下载)，实测charles也可以。
@@ -18,6 +18,8 @@ python version: 3.8.6;
 至于https包显示unknown请自行查阅https抓包的问题（多半是证书配置问题）
 
 # 疫情当下上海买菜太难了
+
+## 倡导大家只够买必需品！不要浪费运力
 交流群
 
 ![Alt text](https://github.com/azhan1998/sam_buy/blob/main/QRcode.jpg)
