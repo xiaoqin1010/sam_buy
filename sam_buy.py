@@ -20,6 +20,45 @@ authtoken = ''
 trackinfo= ''
 
 
+# 有能力的可以自行修改该方法，联调order方法
+def getUserCart():
+    myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/trade/cart/getUserCart'
+    data = {
+        # YOUR SELF
+    }
+    headers = {
+        'Host': 'api-sams.walmartmobile.cn',
+        'Connection': 'keep-alive',
+        'Accept': '*/*',
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Content-Length': '704',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'User-Agent': 'SamClub/5.0.45 (iPhone; iOS 15.4; Scale/3.00)',
+        'device-name': 'iPhone14,3',
+        'device-os-version': '15.4',
+        'device-id': deviceid,
+        'latitude': latitude,
+        'track-info': trackinfo,
+        'device-type': 'ios',
+        'auth-token': authtoken,
+        'app-version': '5.0.45.1'
+
+    }
+    try:
+        ret = requests.post(url=myUrl, headers=headers, data=json.dumps(data))
+        print(ret.text)
+#         myRet = json.loads(ret.text)
+#         # print(myRet['data'].get('capcityResponseList')[0])
+#         normalGoodsList = (myRet['data'].get('floorInfoList')[0].get('normalGoodsList'))
+#         # time_list = myRet['data'].get('capcityResponseList')[0].get('list')
+#         goodlist = []
+#         for i in range(0, len(normalGoodsList)):
+#             spuId = normalGoodsList[i].get('spuId')
+#             goodlist.append(spuId)
+
+    except Exception as e:
+        print('getUserCart [Error]: ' + str(e))
 
 def getCapacityData():
     global startRealTime
@@ -68,7 +107,10 @@ def getCapacityData():
 
 
 def order(startRealTime,endRealTime):
-
+    global index
+    # 防止重复请求
+    if index > 10:
+        getCapacityData()
     print('下单：'+startRealTime)
 
     myUrl = 'https://api-sams.walmartmobile.cn/api/v1/sams/trade/settlement/commitPay'
